@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.AccidentMapper">
+    <insert id="insertAccidentOldInfo">
+        INSERT INTO accident_old
+        (
+            sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+        )
+        VALUES(
+            #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+        );
+    </insert>
+</mapper>
