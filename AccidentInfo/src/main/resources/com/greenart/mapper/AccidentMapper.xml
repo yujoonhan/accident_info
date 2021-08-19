@@ -13,4 +13,29 @@
             #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
         );
     </insert>
+
+    <insert id="insertAccidentChdInfo">
+        INSERT INTO accident_chd
+        (
+            sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+        )
+        VALUES(
+            #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+        );
+    </insert>
+
+    <insert id="insertAccidentBycInfo">
+        INSERT INTO accident_byc
+        (
+            sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+        )
+        VALUES(
+            #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+        );
+    </insert>
+
 </mapper>
