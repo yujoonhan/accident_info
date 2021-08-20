@@ -6,36 +6,50 @@
         INSERT INTO accident_old
         (
             sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
-            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, yearDt
         )
         VALUES(
             #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
-            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{yearDt}
         );
     </insert>
-
     <insert id="insertAccidentChdInfo">
         INSERT INTO accident_chd
         (
             sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
-            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, yearDt
         )
         VALUES(
             #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
-            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{yearDt}
         );
     </insert>
-
     <insert id="insertAccidentBycInfo">
         INSERT INTO accident_byc
         (
             sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
-            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, year
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, yearDt
         )
         VALUES(
             #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
-            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{year}
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{yearDt}
         );
     </insert>
 
+    <select id="selectAcdOldAllYearCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
+        select sum(caslt_cnt) as all_caslt_cnt from accident_old where yearDt >= str_to_date(#{date}-1, "%Y");
+    </select>
+    <select id="selectAcdChdAllYearCnt" resultType="com.greenart.vo.AccidentChdInfoVO">
+        select sum(caslt_cnt) as all_caslt_cnt from accident_chd where yearDt >= str_to_date(#{date}-1, "%Y");
+    </select>
+    <select id="selectAcdBycAllYearCnt" resultType="com.greenart.vo.AccidentBycInfoVO">
+        select sum(caslt_cnt) as all_caslt_cnt from accident_byc where yearDt >= str_to_date(#{date}-1, "%Y");
+    </select>
+
+    <select id="selectAcdOldAllCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
+        select sum(dth_dnv_cnt) as all_dth_dnv_cnt,
+        sum(se_dnv_cnt) as all_se_dnv_cnt,
+        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        from accident_old;
+    </select>
 </mapper>

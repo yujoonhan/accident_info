@@ -1,5 +1,10 @@
 package com.greenart.service;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import com.greenart.mapper.AccidentMapper;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
@@ -21,4 +26,49 @@ public class AccidentInfoService {
     public void insertAccidentBycInfo(AccidentBycInfoVO vo){
         mapper.insertAccidentBycInfo(vo);
     }
+
+    public AccidentOldInfoVO selectAcdOldRyearCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+
+        AccidentOldInfoVO data =  mapper.selectAcdOldAllYearCnt(date);
+        Integer all_caslt_cnt = data.getAll_caslt_cnt();
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String str_all_caslt_cnt = dFormatter.format(all_caslt_cnt);
+
+        data.setStr_all_caslt_cnt(str_all_caslt_cnt);;
+        return data;
+    }
+    public AccidentChdInfoVO selectAcdChdRyearCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+
+        AccidentChdInfoVO data =  mapper.selectAcdChdAllYearCnt(date);
+        Integer all_caslt_cnt = data.getAll_caslt_cnt();
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String str_all_caslt_cnt = dFormatter.format(all_caslt_cnt);
+
+        data.setStr_all_caslt_cnt(str_all_caslt_cnt);;
+        return data;
+    }
+    public AccidentBycInfoVO selectAcdBycRyearCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+
+        AccidentBycInfoVO data =  mapper.selectAcdBycAllYearCnt(date);
+        Integer all_caslt_cnt = data.getAll_caslt_cnt();
+        DecimalFormat dFormatter = new DecimalFormat("###,###");
+        String str_all_caslt_cnt = dFormatter.format(all_caslt_cnt);
+
+        data.setStr_all_caslt_cnt(str_all_caslt_cnt);;
+        return data;
+    }
+
+    public List<AccidentBycInfoVO> selectAcdOldAllCnt(){
+        return mapper.selectAcdOldAllCnt();
+    }
+    
 }

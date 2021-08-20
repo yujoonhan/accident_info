@@ -1,5 +1,7 @@
 package com.greenart.mapper;
 
+import java.util.List;
+
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
@@ -11,4 +13,11 @@ public interface AccidentMapper {
     public void insertAccidentOldInfo(AccidentOldInfoVO vo);
     public void insertAccidentChdInfo(AccidentChdInfoVO vo);
     public void insertAccidentBycInfo(AccidentBycInfoVO vo);
+
+    public AccidentOldInfoVO selectAcdOldAllYearCnt(String date);
+    public AccidentChdInfoVO selectAcdChdAllYearCnt(String date);
+    public AccidentBycInfoVO selectAcdBycAllYearCnt(String date);
+    
+    public List<AccidentBycInfoVO> selectAcdOldAllCnt();
+
 }

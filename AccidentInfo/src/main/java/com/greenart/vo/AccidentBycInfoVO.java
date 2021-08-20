@@ -1,5 +1,7 @@
 package com.greenart.vo;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -12,5 +14,8 @@ public class AccidentBycInfoVO {
     private Integer dth_dnv_cnt;
     private Integer se_dnv_cnt;
     private Integer sl_dnv_cnt;
-    private String year;
+    private Date yearDt;
+
+    private Integer all_caslt_cnt;
+    private String str_all_caslt_cnt;
 }

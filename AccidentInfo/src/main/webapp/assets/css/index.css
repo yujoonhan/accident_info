@@ -6,15 +6,8 @@
     padding: 15px 72px;
 }
 .dashboard_area {width: 960px; height: 960px; background-color: #abf;}
-.dashboard_content {box-sizing: border-box; padding: 40px; font-size: 0;}
+.dashboard_content {box-sizing: border-box; padding: 20px; font-size: 0;}
 .dashboard_content > div {display: inline-block; vertical-align: top;}
-.content_left {width: 260px; height: 260px; background-color: #fff; margin-right: 46px;}
-.content_middle {width: 260px; height: 260px; background-color: #fff; margin-right: 46px;}
-.content_right {width: 260px; height: 260px; background-color: #fff;}
+.content_left {width: 250px; height: 250px; background-color: #fff; margin: 20px 20px;}
 .content_left .con_title {font-size: 20px; font-family: "Noto Sans KR", sans-serif;}
 .content_left .con_number {font-size: 20px; font-family: "Noto Sans KR", sans-serif; font-weight: 500;}
-.content_middle .con_title {font-size: 20px; font-family: "Noto Sans KR", sans-serif;}
-.content_middle .con_number {font-size: 20px; font-family: "Noto Sans KR", sans-serif; font-weight: 500;}
-.content_right .con_title {font-size: 20px; font-family: "Noto Sans KR", sans-serif;}
-.content_right .con_number {font-size: 20px; font-family: "Noto Sans KR", sans-serif; font-weight: 500;}
-
