@@ -28,7 +28,7 @@ public class AccidentInfoComponent {
     @Autowired
     AccidentInfoService service;
     // 매일 10시에 호출
-    @Scheduled(cron="* * 10 * * *")
+    @Scheduled(cron="0 0 10 * * *")
     public void getAccidentInfo() throws Exception{
         System.out.println("cron schedule");
         Date dt = new Date();

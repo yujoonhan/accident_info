@@ -1,4 +1,23 @@
 $(function(){
+    $.ajax({
+        type:"get",
+        url:"/api/regionalOld",
+        success:function(r){
+            $(".sido_area").html("");
+            for(let i=0; i<r.regionList.length; i++){
+                let tag =
+                    '<div class="sido_box">'+
+                        '<p class="sido_name">'+r.regionList[i].sido_sgg_nm+'</p>'+
+                        '<p class="regionOld">'+
+                            '<span>노인</span>'+
+                            '<span class="regionOldCnt" style="margin-left:5px">'+r.regionList[i].region_cnt+'</span>'+
+                        '</p>'+
+                    "</div>";
+                $(".sido_area").append(tag);
+            }
+        }
+    })
+
     let ctx1 = $("#region_old_chart");
     let region_old_chart = new Chart(ctx1, {
         type:"bar",

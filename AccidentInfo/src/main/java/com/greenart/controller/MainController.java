@@ -25,8 +25,9 @@ public class MainController {
         AccidentBycInfoVO Bvo = service.selectAcdBycRyearCnt();
         model.addAttribute("acdBycAllYearCnt", Bvo);
 
-        List<AccidentBycInfoVO> LOvo = service.selectAcdOldAllCnt();
-        model.addAttribute("acdOldAllCnt", LOvo);
+        AccidentOldInfoVO DOvo = service.selectAcdOldDthCnt();
+        model.addAttribute("oldDthCnt", DOvo);
+
         return "/index";
     }
 }

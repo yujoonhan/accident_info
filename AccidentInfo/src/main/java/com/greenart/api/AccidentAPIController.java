@@ -2,6 +2,7 @@ package com.greenart.api;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,6 +18,7 @@ import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.Document;
@@ -219,4 +221,45 @@ public class AccidentAPIController {
         return resultMap;
     }
 
+    @GetMapping("/api/accidentOldDth/{date}")
+    public Map<String, Object> getAccidentOldDthInfo(
+        @PathVariable String date
+    ){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        AccidentOldInfoVO data = null;
+        if(date.equals("today")){
+            data = service.selectAcdOldDthCnt();
+        }
+        resultMap.put("status", true);
+        resultMap.put("data", data);
+        return resultMap;
+    }
+    @GetMapping("/api/accidentChdDth/{date}")
+    public Map<String, Object> getAccidentChdDthInfo(
+        @PathVariable String date
+    ){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        AccidentChdInfoVO data = null;
+        if(date.equals("today")){
+            data = service.selectAcdChdDthCnt();
+        }
+        resultMap.put("status", true);
+        resultMap.put("data", data);
+        return resultMap;
+    }
+    @GetMapping("/api/accidentBycDth/{date}")
+    public Map<String, Object> getAccidentBycDthInfo(
+        @PathVariable String date
+    ){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        AccidentBycInfoVO data = null;
+        if(date.equals("today")){
+            data = service.selectAcdBycDthCnt();
+        }
+        resultMap.put("status", true);
+        resultMap.put("data", data);
+        return resultMap;
+    }
+
+    
 }

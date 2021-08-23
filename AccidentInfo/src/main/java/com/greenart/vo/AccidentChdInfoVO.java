@@ -18,4 +18,8 @@ public class AccidentChdInfoVO {
 
     private Integer all_caslt_cnt;
     private String str_all_caslt_cnt;
+
+    private Integer all_dth_dnv_cnt;
+    private Integer all_se_dnv_cnt;
+    private Integer all_sl_dnv_cnt;
 }

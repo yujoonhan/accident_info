@@ -9,7 +9,7 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
     <title>연도볗 보행 사고 정보</title>
-    <link rel="stylesheet" href="/assets/css/years.css">
+    <!-- <link rel="stylesheet" href="/assets/css/years.css"> -->
     <script src="/assets/js/years.js"></script>
 </head>
 <body>

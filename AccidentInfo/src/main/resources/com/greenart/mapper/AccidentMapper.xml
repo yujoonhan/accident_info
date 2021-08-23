@@ -46,10 +46,30 @@
         select sum(caslt_cnt) as all_caslt_cnt from accident_byc where yearDt >= str_to_date(#{date}-1, "%Y");
     </select>
 
-    <select id="selectAcdOldAllCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
-        select sum(dth_dnv_cnt) as all_dth_dnv_cnt,
+    <select id="selectAcdOldDthCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
+        select 
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
         sum(se_dnv_cnt) as all_se_dnv_cnt,
         sum(sl_dnv_cnt) as all_sl_dnv_cnt
-        from accident_old;
+        from accident_old where yearDt >= str_to_date(#{date}-1, "%Y");
     </select>
+    <select id="selectAcdChdDthCnt" resultType="com.greenart.vo.AccidentChdInfoVO">
+        select 
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
+        sum(se_dnv_cnt) as all_se_dnv_cnt,
+        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        from accident_Chd where yearDt >= str_to_date(#{date}-1, "%Y");
+    </select>
+    <select id="selectAcdBycDthCnt" resultType="com.greenart.vo.AccidentBycInfoVO">
+        select 
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
+        sum(se_dnv_cnt) as all_se_dnv_cnt,
+        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        from accident_Byc where yearDt >= str_to_date(#{date}-1, "%Y");
+    </select>
+
+    
+
+    
+
 </mapper>

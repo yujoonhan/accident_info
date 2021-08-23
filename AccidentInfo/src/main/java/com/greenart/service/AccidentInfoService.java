@@ -66,9 +66,26 @@ public class AccidentInfoService {
         data.setStr_all_caslt_cnt(str_all_caslt_cnt);;
         return data;
     }
-
-    public List<AccidentBycInfoVO> selectAcdOldAllCnt(){
-        return mapper.selectAcdOldAllCnt();
-    }
     
+    public AccidentOldInfoVO selectAcdOldDthCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+        return mapper.selectAcdOldDthCnt(date);
+    }
+    public AccidentChdInfoVO selectAcdChdDthCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+        return mapper.selectAcdChdDthCnt(date);
+    }
+    public AccidentBycInfoVO selectAcdBycDthCnt(){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        String date = formatter.format(now);
+        return mapper.selectAcdBycDthCnt(date);
+    }
+
+    
+
 }

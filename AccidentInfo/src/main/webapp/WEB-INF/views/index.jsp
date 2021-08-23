@@ -33,15 +33,15 @@
             <div class="dashboard_content">
                 <div class="content_left">
                     <canvas id="old_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">노인 사고자 부상 비율</p>
+                    <p class="con_title">작년 노인 사고자 부상 비율</p>
                 </div>
                 <div class="content_left">
                     <canvas id="chd_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">어린이 사고자 부상 비율</p>
+                    <p class="con_title">작년 어린이 사고자 부상 비율</p>
                 </div>
                 <div class="content_left">
                     <canvas id="byc_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">자전거 사고자 부상 비율</p>
+                    <p class="con_title">작년 자전거 사고자 부상 비율</p>
                 </div>
             </div>
             <div class="dashboard_content">

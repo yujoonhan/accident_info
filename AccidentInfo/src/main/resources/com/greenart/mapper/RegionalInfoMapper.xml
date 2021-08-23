@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.RegionalInfoMapper">
+    <select id="selectOldRegional" resultType="com.greenart.vo.AccidentOldInfoVO">
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '서울%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt
+        from accident_old where sido_sgg_nm like '부산%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '대구%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '인천%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '광주%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '대전%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '울산%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '세종%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm, yearDt 
+        from accident_old where sido_sgg_nm like '경기%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '강원%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '충%북%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '충%남%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '전%북%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '전%남%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '경%북%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '경%남%'
+        and yearDt = '2020-01-01'
+        union
+        select sum(caslt_cnt) as region_cnt, sido_sgg_nm , yearDt
+        from accident_old where sido_sgg_nm like '제주%'
+        and yearDt = '2020-01-01';
+    </select>
+</mapper>

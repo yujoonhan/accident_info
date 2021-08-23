@@ -18,6 +18,8 @@ public interface AccidentMapper {
     public AccidentChdInfoVO selectAcdChdAllYearCnt(String date);
     public AccidentBycInfoVO selectAcdBycAllYearCnt(String date);
     
-    public List<AccidentBycInfoVO> selectAcdOldAllCnt();
+    public AccidentOldInfoVO selectAcdOldDthCnt(String date);
+    public AccidentChdInfoVO selectAcdChdDthCnt(String date);
+    public AccidentBycInfoVO selectAcdBycDthCnt(String date);
 
 }
