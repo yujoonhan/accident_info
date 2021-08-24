@@ -24,11 +24,24 @@
                 <div class="content_left">
                     <canvas id="region_chd_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
+            </div>
+            <div class="dashboard_content">
                 <div class="content_left">
                     <canvas id="region_byc_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
+                <div class="content_left">
+                    <canvas id="region_all_chart" style="width: 100%; height: 100%;"></canvas>
+                </div>
             </div>
-            <div class="sido_area"></div>
+            <div class="sido_Oarea">
+
+            </div>
+            <div class="sido_Carea">
+
+            </div>
+            <div class="sido_Barea">
+
+            </div>
         </div>
     </div>
 </body>

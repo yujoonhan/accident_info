@@ -17,31 +17,31 @@
                 <div class="content_left">
                     <img src="/assets/images/grandfather256.png">
                     <p class="con_number">${acdOldAllYearCnt.str_all_caslt_cnt}</p>
-                    <p class="con_title">작년 노인 보행 사고자 수</p>
+                    <p class="con_title">전체 노인 보행 사고자 수</p>
                 </div>
                 <div class="content_left">
                     <img src="/assets/images/daughter256.png">
                     <p class="con_number">${acdChdAllYearCnt.str_all_caslt_cnt}</p>
-                    <p class="con_title">작년 어린이 보행 사고자 수</p>
+                    <p class="con_title">전체 어린이 보행 사고자 수</p>
                 </div>
                 <div class="content_left">
                     <img src="/assets/images/mountain-bike256.png">
                     <p class="con_number">${acdBycAllYearCnt.str_all_caslt_cnt}</p>
-                    <p class="con_title">작년 자전거 보행 사고자 수</p>
+                    <p class="con_title">전체 자전거 보행 사고자 수</p>
                 </div>
             </div>
             <div class="dashboard_content">
                 <div class="content_left">
                     <canvas id="old_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">작년 노인 사고자 부상 비율</p>
+                    <p class="con_title">전체 노인 사고자 부상 비율</p>
                 </div>
                 <div class="content_left">
                     <canvas id="chd_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">작년 어린이 사고자 부상 비율</p>
+                    <p class="con_title">전체 어린이 사고자 부상 비율</p>
                 </div>
                 <div class="content_left">
                     <canvas id="byc_chart" style="width: 100%; height: 100%;"></canvas>
-                    <p class="con_title">작년 자전거 사고자 부상 비율</p>
+                    <p class="con_title">전체 자전거 사고자 부상 비율</p>
                 </div>
             </div>
             <div class="dashboard_content">

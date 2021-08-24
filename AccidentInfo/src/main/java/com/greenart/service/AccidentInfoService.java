@@ -27,7 +27,7 @@ public class AccidentInfoService {
         mapper.insertAccidentBycInfo(vo);
     }
 
-    public AccidentOldInfoVO selectAcdOldRyearCnt(){
+    public AccidentOldInfoVO selectAcdOldAllYearCnt(){
         Date now = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
         String date = formatter.format(now);

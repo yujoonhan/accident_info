@@ -28,49 +28,24 @@
                 <div class="content_left">
                     <canvas id="years_chd_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
+                
+            </div>
+            <div class="dashboard_content">
                 <div class="content_left">
                     <canvas id="years_byc_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
-            </div>
-            <div class="dashboard_content">
-                <div>
-                    <p>2015</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
-                </div>
-                <div>
-                    <p>2016</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
-                </div>
-                <div>
-                    <p>2017</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
-                </div>
-                <div>
-                    <p>2018</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
+                <div class="content_left">
+                    <canvas id="years_all_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
-            <div class="dashboard_content">
-                <div>
-                    <p>2019</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
-                </div>
-                <div>
-                    <p>2020</p>
-                    <p id="y_oldCnt"><span>노인</span> 123</p>
-                    <p id="y_chdCnt"><span>어린이</span>123</p>
-                    <p id="y_bycCnt"><span>자전거</span>123</p>
-                </div>
+            <div class="year_Oarea">
+
+            </div>
+            <div class="year_Carea">
+
+            </div>
+            <div class="year_Barea">
+
             </div>
         </div>
     </div>

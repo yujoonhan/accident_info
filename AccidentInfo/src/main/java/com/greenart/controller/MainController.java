@@ -18,7 +18,7 @@ public class MainController {
     AccidentInfoService service;
     @GetMapping("/")
     public String getMain(Model model) {
-        AccidentOldInfoVO Ovo = service.selectAcdOldRyearCnt();
+        AccidentOldInfoVO Ovo = service.selectAcdOldAllYearCnt();
         model.addAttribute("acdOldAllYearCnt", Ovo);
         AccidentChdInfoVO Cvo = service.selectAcdChdRyearCnt();
         model.addAttribute("acdChdAllYearCnt", Cvo);

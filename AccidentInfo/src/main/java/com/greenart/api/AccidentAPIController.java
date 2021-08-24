@@ -221,6 +221,8 @@ public class AccidentAPIController {
         return resultMap;
     }
 
+
+
     @GetMapping("/api/accidentOldDth/{date}")
     public Map<String, Object> getAccidentOldDthInfo(
         @PathVariable String date

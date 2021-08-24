@@ -11,12 +11,12 @@ $(function(){
                     responsive:false
                 },
                 data:{
-                    labels:["사망", "중상", "경상"],
+                    labels:["경상", "중상", "사망"],
                     datasets:[
                         {
-                            label:"사망/중상/경상",
-                            data:[r.data.all_dth_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_sl_dnv_cnt],
-                            backgroundColor:["rgba(255, 0, 0, 0.4)", "rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)"]
+                            label:"경상/중상/사망",
+                            data:[r.data.all_sl_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_dth_dnv_cnt],
+                            backgroundColor:["rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)", "rgba(255, 0, 0, 0.4)"]
                         }
                     ]
                 }
@@ -36,12 +36,12 @@ $(function(){
                     responsive:false
                 },
                 data:{
-                    labels:["사망", "중상", "경상"],
+                    labels:["경상", "중상", "사망"],
                     datasets:[
                         {
-                            label:"사망/중상/경상",
-                            data:[r.data.all_dth_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_sl_dnv_cnt],
-                            backgroundColor:["rgba(255, 0, 0, 0.4)", "rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)"]
+                            label:"경상/중상/사망",
+                            data:[r.data.all_sl_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_dth_dnv_cnt],
+                            backgroundColor:["rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)", "rgba(255, 0, 0, 0.4)"]
                         }
                     ]
                 }
@@ -61,12 +61,12 @@ $(function(){
                     responsive:false
                 },
                 data:{
-                    labels:["사망", "중상", "경상"],
+                    labels:["경상", "중상", "사망"],
                     datasets:[
                         {
-                            label:"사망/중상/경상",
-                            data:[r.data.all_dth_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_sl_dnv_cnt],
-                            backgroundColor:["rgba(255, 0, 0, 0.4)", "rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)"]
+                            label:"경상/중상/사망",
+                            data:[r.data.all_sl_dnv_cnt, r.data.all_se_dnv_cnt, r.data.all_dth_dnv_cnt],
+                            backgroundColor:["rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)", "rgba(255, 0, 0, 0.4)"]
                         }
                     ]
                 }
@@ -121,4 +121,5 @@ $(function(){
             ]
         }
     })
+
 })

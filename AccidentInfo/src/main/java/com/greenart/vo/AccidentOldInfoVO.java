@@ -24,4 +24,9 @@ public class AccidentOldInfoVO {
     private Integer all_sl_dnv_cnt;
 
     private Integer region_cnt;
+    private Integer years_cnt;
+    
+    private String sido_nm;
+
+    private String yYearDt;
 }
