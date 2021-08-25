@@ -2,84 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greenart.mapper.YearsInfoMapper">
-    <select id="selectOldYears" resultType="com.greenart.vo.AccidentOldInfoVO">
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_old where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d");
-    </select>
-
-    <select id="selectChdYears" resultType="com.greenart.vo.AccidentChdInfoVO">
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_chd where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d");
-    </select>
-
-    <select id="selectBycYears" resultType="com.greenart.vo.AccidentBycInfoVO">
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
-        union
-        select sum(caslt_cnt) as years_cnt, sido_sgg_nm , date_format(yearDt, "%Y")
-        as yYearDt from accident_byc where 
-        date_format(yearDt, "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d");
-    </select>
-
     <select id="selectYear" resultType="com.greenart.vo.AccidentYearVO">
         select * from (
             select sum(caslt_cnt) as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
@@ -189,4 +111,43 @@
             and date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
         ) as c
     </select>
+
+    <!-- <select id="selectYear" resultType="com.greenart.vo.AccidentYearVO">
+        select * from (
+        select date_format(yearDt , "%Y")  as yYearDt,
+        case
+        	when sido_sgg_nm like '서울%' then '서울'
+        	when sido_sgg_nm like '부산광역시%' then '부산'
+        	when sido_sgg_nm like '대구광역시%' then '대구'
+        	when sido_sgg_nm like '인천광역시%' then '인천'
+        	when sido_sgg_nm like '광주광역시%' then '광주'
+        	when sido_sgg_nm like '대전광역시%' then '대전'
+        	when sido_sgg_nm like '울산광역시%' then '울산'
+        	when sido_sgg_nm like '세종특별자치시%' then '세종'
+        	when sido_sgg_nm like '경기도%' then '경기'
+        	when sido_sgg_nm like '강원도%' then '강원'
+        	when sido_sgg_nm like '충청북도%' then '충청북도'
+        	when sido_sgg_nm like '충청남도%' then '충청남도'
+        	when sido_sgg_nm like '전라북도%' then '전라북도'
+        	when sido_sgg_nm like '전라남도%' then '전라남도'
+        	when sido_sgg_nm like '경상북도%' then '경상북도'
+        	when sido_sgg_nm like '경상남도%' then '경상남도'
+        	when sido_sgg_nm like '제주특별자치도%' then '제주'
+        end as sido_nm,
+        ifnull(sum(caslt_cnt), 0) as old_cnt
+        from accident_old
+        where sido_sgg_nm like #{region}
+        and date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0) as chd_cnt
+            from accident_chd
+        where sido_sgg_nm like #{region}
+        and date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0) as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like #{region}
+            and date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as c;
+    </select> -->
 </mapper>

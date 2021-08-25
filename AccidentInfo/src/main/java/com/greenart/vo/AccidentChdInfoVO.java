@@ -23,10 +23,4 @@ public class AccidentChdInfoVO {
     private Integer all_se_dnv_cnt;
     private Integer all_sl_dnv_cnt;
 
-    private Integer region_cnt;
-    private Integer years_cnt;
-    
-    private String sido_nm;
-
-    private String yYearDt;
 }
