@@ -45,10 +45,10 @@
                 </div>
             </div>
             <div class="dashboard_content">
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="regionAll_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="yearsAll_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
             </div>

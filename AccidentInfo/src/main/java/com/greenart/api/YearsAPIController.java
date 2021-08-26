@@ -20,12 +20,13 @@ public class YearsAPIController {
     @Autowired
     YearsInfoService service;
 
-    @GetMapping("api/yearCnt")
-    public Map<String, Object> getYearCnt(
+    @GetMapping("api/yearCnt/{region}")
+    public Map<String, Object> getYearsInfo(
+        @PathVariable @Nullable String region
     ){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-
-        List<AccidentYearVO> vo = service.selectYear();
+        region = region + "%";
+        List<AccidentYearVO> vo = service.selectYear(region);
         resultMap.put("yearCnt", vo);
         return resultMap;
     }

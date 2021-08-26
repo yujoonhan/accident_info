@@ -3,4 +3,10 @@
     box-sizing: border-box; margin: 20px;
     background-color: #fab;
     text-align: center;
+    display: inline-block;
+}
+.dashboard_area select {
+    margin-left: 400px;
+    padding: 10px 15px; font-family: "Noto Sans KR" sans-serif; font-size: 16px;
+    font-weight: 700; border: 2px solid #afb; outline: none;
 }

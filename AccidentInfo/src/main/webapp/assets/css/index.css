@@ -5,9 +5,12 @@
     text-decoration: none; background-color: rgb(88, 160, 255); font-weight: 500;
     padding: 15px 72px;
 }
-.dashboard_area {width: 960px; height: 960px; background-color: #abf;}
-.dashboard_content {box-sizing: border-box; padding: 20px; font-size: 0;}
+.dashboard_area {width: 960px; height: 960px; background-color: #fff;}
+.dashboard_content {box-sizing: border-box; padding-top: 20px; font-size: 0;}
 .dashboard_content > div {display: inline-block; vertical-align: top;}
+
 .content_left {width: 250px; height: 250px; background-color: #fff; margin: 20px 20px;}
 .content_left .con_title {font-size: 20px; font-family: "Noto Sans KR", sans-serif;}
 .content_left .con_number {font-size: 20px; font-family: "Noto Sans KR", sans-serif; font-weight: 500;}
+
+.content_left2 {width: 440px; height: 250px; background-color: #fff; margin: 20px 20px;}

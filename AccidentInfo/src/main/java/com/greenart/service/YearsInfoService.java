@@ -16,8 +16,8 @@ public class YearsInfoService {
     @Autowired
     YearsInfoMapper mapper;
 
-    public List<AccidentYearVO> selectYear(){
-        return mapper.selectYear();
+    public List<AccidentYearVO> selectYear(String region){
+        return mapper.selectYear(region);
     }
 
 }

@@ -21,7 +21,7 @@ public class RegionalApiController {
     RegionalInfoService service;
 
     @GetMapping("api/regionalCnt/{date}")
-    public Map<String, Object> getRegionalCnt(
+    public Map<String, Object> getRegionalInfo(
         @PathVariable @Nullable String date
     ){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();

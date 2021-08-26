@@ -74,50 +74,69 @@ $(function(){
         }
     })
 
-    let ctx4 = $("#regionAll_chart");
-    let regionAll_chart = new Chart(ctx4, {
-        type:"bar",
-        options:{
-            responsive:false
-        },
-        data:{
-            labels:["1", "2", "3", "4", "5"],
-            datasets:[
-                {
-                    label:"asdf",
-                    data:[10, 20, 40, 123, 12],
-                    backgroundColor:["rgba(255, 0, 0, 0.4)"]
+    $.ajax({
+        type:"get",
+        url:"/api/accidentAllcntR",
+        success:function(r){
+            console.log(r);
+            let all_cnt = new Array();
+            let sido_nm = new Array();
+            for(let i=0; i<r.data.length; i++){
+                let aCnt = r.data[i].all_cnt;
+                let sido = r.data[i].sido_nm;
+                all_cnt.push(aCnt);
+                sido_nm.push(sido);
+            }
+            let ctx4 = $("#regionAll_chart");
+            let regionAll_chart = new Chart(ctx4, {
+                type:"bar",
+                options:{
+                    responsive:false
+                },
+                data:{
+                    labels:sido_nm,
+                    datasets:[
+                        {
+                            label:"지역별 전체 사고자 수",
+                            data:all_cnt,
+                            backgroundColor:["rgba(255, 0, 255, 0.4)"]
+                        }
+                    ]
                 }
-            ]
+            })
         }
     })
 
-    let ctx5 = $("#yearsAll_chart");
-    let yearsAll_chart = new Chart(ctx5, {
-        type:"line",
-        options:{
-            responsive:false
-        },
-        data:{
-            labels:["1", "2", "3", "4", "5"],
-            datasets:[
-                {
-                    label:"asdf",
-                    data:[3200, 5600, 4400, 6200, 5500],
-                    backgroundColor:["rgba(255, 0, 0, 0.4)"]
-                    // "rgba(0, 255, 0, 0.4)", "rgba(0, 0, 255, 0.4)"
+    $.ajax({
+        type:"get",
+        url:"/api/accidentAllcnt",
+        success:function(r){
+            console.log(r);
+            let all_cnt = new Array();
+            let yyearDt = new Array();
+            for(let i=0; i<r.data.length; i++){
+                let aCnt = r.data[i].all_cnt;
+                let years = r.data[i].yyearDt;
+                all_cnt.push(aCnt);
+                yyearDt.push(years);
+            }
+            let ctx5 = $("#yearsAll_chart");
+            let yearsAll_chart = new Chart(ctx5, {
+                type:"line",
+                options:{
+                    responsive:false
                 },
-                {
-                    label:"asdf",
-                    data:[1200, 2600, 1400, 1200, 1500],
-                    backgroundColor:["rgba(0, 255, 0, 0.4)"]
-                },
-                {
-                    label:"asdf",
-                    data:[2200, 3600, 2400, 3200, 3500],
-                    backgroundColor:["rgba(0, 0, 255, 0.4)"]
+                data:{
+                    labels:yyearDt,
+                    datasets:[
+                        {
+                            label:"연도별 전체 사고자 수",
+                            data:all_cnt,
+                            backgroundColor:["rgba(255, 0, 255, 0.4)"]
+                        }
+                    ]
                 }
-            ]
+            })
         }
     })
 

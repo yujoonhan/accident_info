@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface YearsInfoMapper {
-    public List<AccidentYearVO> selectYear();
+    public List<AccidentYearVO> selectYear(String region);
 
     
 }

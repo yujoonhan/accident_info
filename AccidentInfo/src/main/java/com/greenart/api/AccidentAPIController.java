@@ -9,8 +9,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import com.greenart.service.AccidentInfoService;
+import com.greenart.vo.AccidentAllInfoVO;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
+import com.greenart.vo.AccidentJwkInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
 
 import java.net.URLEncoder;
@@ -221,8 +223,6 @@ public class AccidentAPIController {
         return resultMap;
     }
 
-
-
     @GetMapping("/api/accidentOldDth/{date}")
     public Map<String, Object> getAccidentOldDthInfo(
         @PathVariable String date
@@ -263,5 +263,20 @@ public class AccidentAPIController {
         return resultMap;
     }
 
-    
+    @GetMapping("/api/accidentAllcnt")
+    public Map<String, Object> getAllCntYear(){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<AccidentAllInfoVO> list = service.selectAllCntYear();
+        resultMap.put("data", list);
+        return resultMap;
+    }
+
+    @GetMapping("/api/accidentAllcntR")
+    public Map<String, Object> getAllCntRegion(){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        List<AccidentAllInfoVO> list = service.selectAllCntRegion();
+        resultMap.put("data", list);
+        return resultMap;
+    }
+
 }

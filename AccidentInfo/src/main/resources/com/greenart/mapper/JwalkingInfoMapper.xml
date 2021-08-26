@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.JwalkingInfoMapper">
+    <insert id="insertAccidentJwkInfo">
+        INSERT INTO accident_jwk
+        (
+            sido_sgg_nm, spot_nm, occrrnc_cnt, caslt_cnt,
+            dth_dnv_cnt, se_dnv_cnt, sl_dnv_cnt, yearDt
+        )
+        VALUES(
+            #{sido_sgg_nm}, #{spot_nm}, #{occrrnc_cnt}, #{caslt_cnt},
+            #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{yearDt}
+        );
+    </insert>
+    
+    <select id="selectJwkCntYear" resultType="com.greenart.vo.AccidentJwkInfoVO">
+        select sum(caslt_cnt) as all_cnt, yearDt
+        from accident_jwk where yearDt = '2015'
+        union
+        select sum(caslt_cnt) as all_cnt, yearDt
+        from accident_jwk where yearDt = '2016'
+        union
+        select sum(caslt_cnt) as all_cnt, yearDt
+        from accident_jwk where yearDt = '2017'
+        union
+        select sum(caslt_cnt) as all_cnt, yearDt
+        from accident_jwk where yearDt = '2018'
+        union
+        select sum(caslt_cnt) as all_cnt, yearDt
+        from accident_jwk where yearDt = '2019'
+    </select>
+</mapper>

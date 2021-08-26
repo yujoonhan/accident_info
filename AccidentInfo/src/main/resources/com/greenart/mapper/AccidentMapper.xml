@@ -35,6 +35,7 @@
             #{dth_dnv_cnt}, #{se_dnv_cnt}, #{sl_dnv_cnt}, #{yearDt}
         );
     </insert>
+    
 
     <select id="selectAcdOldAllYearCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
         <![CDATA[
@@ -54,34 +55,351 @@
 
     <select id="selectAcdOldDthCnt" resultType="com.greenart.vo.AccidentOldInfoVO">
         select 
-        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
-        sum(se_dnv_cnt) as all_se_dnv_cnt,
-        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt, sum(se_dnv_cnt) as all_se_dnv_cnt, sum(sl_dnv_cnt) as all_sl_dnv_cnt
         <![CDATA[
         from accident_old where yearDt <= str_to_date(#{date}-1, "%Y");
         ]]>
     </select>
     <select id="selectAcdChdDthCnt" resultType="com.greenart.vo.AccidentChdInfoVO">
         select 
-        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
-        sum(se_dnv_cnt) as all_se_dnv_cnt,
-        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt, sum(se_dnv_cnt) as all_se_dnv_cnt, sum(sl_dnv_cnt) as all_sl_dnv_cnt
         <![CDATA[
         from accident_Chd where yearDt <= str_to_date(#{date}-1, "%Y");
         ]]>
     </select>
     <select id="selectAcdBycDthCnt" resultType="com.greenart.vo.AccidentBycInfoVO">
         select 
-        sum(dth_dnv_cnt) as all_dth_dnv_cnt,
-        sum(se_dnv_cnt) as all_se_dnv_cnt,
-        sum(sl_dnv_cnt) as all_sl_dnv_cnt
+        sum(dth_dnv_cnt) as all_dth_dnv_cnt, sum(se_dnv_cnt) as all_se_dnv_cnt, sum(sl_dnv_cnt) as all_sl_dnv_cnt
         <![CDATA[
         from accident_Byc where yearDt <= str_to_date(#{date}-1, "%Y");
         ]]>
     </select>
 
-    
+    <select id="selectAllCntYear" resultType="com.greenart.vo.AccidentAllInfoVO">
+        select sum(all_cnt) as all_cnt, yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2015-01-01', "%Y-%m-%d")
+        ) as a
+        union 
+        select sum(all_cnt), yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2016-01-01', "%Y-%m-%d")
+        ) as a
+        union 
+        select sum(all_cnt), yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2017-01-01', "%Y-%m-%d")
+        ) as a
+        union 
+        select sum(all_cnt), yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2018-01-01', "%Y-%m-%d")
+        ) as a
+        union 
+        select sum(all_cnt), yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2019-01-01', "%Y-%m-%d")
+        ) as a
+        union 
+        select sum(all_cnt), yYearDt from (
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_old
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_chd
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, date_format(yearDt , "%Y")  as yYearDt
+            from accident_byc
+            where date_format(yearDt , "%Y-%m-%d") = str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+    </select>
 
-    
-
+    <select id="selectAllCntRegion" resultType="com.greenart.vo.AccidentAllInfoVO">
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            <![CDATA[
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '부산%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '부산%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '부산%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '인천%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '인천%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '인천%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '대전%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '대전%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '대전%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '세종%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '세종%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '세종%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '경기도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '경기도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '경기도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '강원도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '강원도%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '강원도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '충청남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '충청남도%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '충청남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '전라남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '전라남도%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '전라남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+            select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '경상남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '경상남도%'and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 4) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '경상남도%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+        ) as a
+        union
+        select sum(all_cnt) as all_cnt, sido_nm from (
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_old 
+            where sido_sgg_nm like '제주특별%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_chd 
+            where sido_sgg_nm like '제주특별%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            union
+            select sum(caslt_cnt) as all_cnt, left(sido_sgg_nm, 2) as sido_nm
+            from accident_byc 
+            where sido_sgg_nm like '제주특별%' and date_format(yearDt , "%Y-%m-%d") <= str_to_date('2020-01-01', "%Y-%m-%d")
+            ]]>
+        ) as a
+    </select>
 </mapper>

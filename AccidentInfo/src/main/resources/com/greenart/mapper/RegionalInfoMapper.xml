@@ -4,309 +4,244 @@
 <mapper namespace="com.greenart.mapper.RegionalInfoMapper">
     <select id="selectRegional" resultType="com.greenart.vo.AccidentRegionalVO">
         select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '서울%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '서울%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '서울%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '서울%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
         select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '부산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '부산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '부산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '부산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '부산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '부산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
                 select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '대구%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '대구%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '대구%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대구%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
         select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '인천%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '인천%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '인천%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '인천%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0) as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '인천%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '인천%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
                 select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '광주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '광주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '광주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '광주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
         select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '대전%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대전%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '대전%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대전%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '대전%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '대전%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
-                select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '울산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0) as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '울산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '울산%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '울산%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
         select * from (
             select ifnull(sum(caslt_cnt), 0) as old_cnt, ifnull(left(sido_sgg_nm, 4), '세종특별') as sido_nm,
             ifnull(date_format(yearDt , "%Y-%m-%d"), #{date})  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '세종%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '세종%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0) as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '세종%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '세종%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '세종%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '세종%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
-                select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
+            select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 3) as sido_nm,
             date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '경기%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '경기%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '경기%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '경기%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '경기%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '경기%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
         select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 3) as sido_nm,
             date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '강원%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '강원%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0) as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '강원%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '강원%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0)as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '강원%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-                select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '충청북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0) as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '충청북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '충청북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-        select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '충청남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0) as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '충청남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '충청남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-                select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '전라북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0)as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '전라북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '전라북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-        select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '전라남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0)as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '전라남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '전라남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-                select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '경상북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0)as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '경상북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '경상북도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as c
-        union
-        select * from (
-            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
-            date_format(yearDt , "%Y-%m-%d")  as yYearDt
-            from accident_old 
-            where sido_sgg_nm like '경상남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as a inner join (
-            select ifnull(sum(caslt_cnt), 0) as chd_cnt
-            from accident_chd
-            where sido_sgg_nm like '경상남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        ) as b inner join (
-            select ifnull(sum(caslt_cnt), 0)as byc_cnt
-            from accident_byc
-            where sido_sgg_nm like '경상남도%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '강원%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
         union
             select * from (
             select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm,
             date_format(yearDt , "%Y-%m-%d")  as yYearDt
             from accident_old 
-            where sido_sgg_nm like '제주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0) as chd_cnt
+            from accident_chd
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like '충청북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+        select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '충청남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0) as chd_cnt
+            from accident_chd
+            where sido_sgg_nm like '충청남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like '충청남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+            select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as a inner join (
             select ifnull(sum(caslt_cnt), 0)as chd_cnt
             from accident_chd
-            where sido_sgg_nm like '제주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like '전라북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+        select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '전라남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0)as chd_cnt
+            from accident_chd
+            where sido_sgg_nm like '전라남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like '전라남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+            select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0)as chd_cnt
+            from accident_chd
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt from accident_byc
+            where sido_sgg_nm like '경상북도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+        select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '경상남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0) as chd_cnt
+            from accident_chd
+            where sido_sgg_nm like '경상남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as b inner join (
+            select ifnull(sum(caslt_cnt), 0)as byc_cnt
+            from accident_byc
+            where sido_sgg_nm like '경상남도%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as c
+        union
+            select * from (
+            select ifnull(sum(caslt_cnt), 0)as old_cnt, left(sido_sgg_nm, 4) as sido_nm, date_format(yearDt , "%Y-%m-%d")  as yYearDt
+            from accident_old 
+            where sido_sgg_nm like '제주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        ) as a inner join (
+            select ifnull(sum(caslt_cnt), 0)as chd_cnt
+            from accident_chd 
+            where sido_sgg_nm like '제주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as b inner join (
             select ifnull(sum(caslt_cnt), 0) as byc_cnt
             from accident_byc
-            where sido_sgg_nm like '제주%'
-            and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            where sido_sgg_nm like '제주%' and date_format(yearDt , "%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
         ) as c
     </select>
     

@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.greenart.mapper.AccidentMapper;
+import com.greenart.vo.AccidentAllInfoVO;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
+import com.greenart.vo.AccidentJwkInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ public class AccidentInfoService {
     public void insertAccidentBycInfo(AccidentBycInfoVO vo){
         mapper.insertAccidentBycInfo(vo);
     }
+
 
     public AccidentOldInfoVO selectAcdOldAllYearCnt(){
         Date now = new Date();
@@ -86,6 +89,10 @@ public class AccidentInfoService {
         return mapper.selectAcdBycDthCnt(date);
     }
 
-    
-
+    public List<AccidentAllInfoVO> selectAllCntYear(){
+        return mapper.selectAllCntYear();
+    }
+    public List<AccidentAllInfoVO> selectAllCntRegion(){
+        return mapper.selectAllCntRegion();
+    }
 }

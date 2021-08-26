@@ -16,27 +16,27 @@
     <div class="container">
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="dashboard_area">
-            <select name="year_select">
-                <option value="2020-01-01">2020-01-01</option>
-                <option value="2019-01-01">2019-01-01</option>
-                <option value="2018-01-01">2018-01-01</option>
-                <option value="2017-01-01">2017-01-01</option>
-                <option value="2016-01-01">2016-01-01</option>
-                <option value="2015-01-01">2015-01-01</option>
+            <select id="year_select">
+                <option value="2020-01-01">2020년</option>
+                <option value="2019-01-01">2019년</option>
+                <option value="2018-01-01">2018년</option>
+                <option value="2017-01-01">2017년</option>
+                <option value="2016-01-01">2016년</option>
+                <option value="2015-01-01">2015년</option>
             </select>
             <div class="dashboard_content">
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="region_old_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="region_chd_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
             <div class="dashboard_content">
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="region_byc_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
-                <div class="content_left">
+                <div class="content_left2">
                     <canvas id="region_all_chart" style="width: 100%; height: 100%;"></canvas>
                 </div>
             </div>
