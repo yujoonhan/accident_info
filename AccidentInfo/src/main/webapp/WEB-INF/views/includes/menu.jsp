@@ -14,6 +14,7 @@
     <div class="main_menu">
         <div class="top_menu">
             <a href="/traffic">연간 교통량 정보</a>
+            <a href="/map">지도 정보</a>
         </div>
         <div class="top_menu">
             <a href="/">ACCIDENT INFO</a>
