@@ -13,7 +13,7 @@
 <body>
     <div class="main_menu">
         <div class="top_menu">
-            <a href="/jwalking">무단횡단 보행 사고 정보</a>
+            <a href="/traffic">연간 교통량 정보</a>
         </div>
         <div class="top_menu">
             <a href="/">ACCIDENT INFO</a>

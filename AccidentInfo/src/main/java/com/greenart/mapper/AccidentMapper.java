@@ -5,7 +5,6 @@ import java.util.List;
 import com.greenart.vo.AccidentAllInfoVO;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
-import com.greenart.vo.AccidentJwkInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
 
 import org.apache.ibatis.annotations.Mapper;

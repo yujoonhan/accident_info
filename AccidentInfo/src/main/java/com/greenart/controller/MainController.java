@@ -1,7 +1,5 @@
 package com.greenart.controller;
 
-import java.util.List;
-
 import com.greenart.service.AccidentInfoService;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;

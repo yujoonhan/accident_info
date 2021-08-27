@@ -1,12 +1,16 @@
 package com.greenart.vo;
 
-import java.util.Date;
 
 import lombok.Data;
 
 @Data
 public class TrafficInfoVO {
     private Integer seq;
-    private Integer trafficVolumn;
-    private Date sumDate;
+    private Integer y2016;
+    private Integer y2017;
+    private Integer y2018;
+    private Integer y2019;
+    private Integer y2020;
+    private String gubun;
+    private String car_gubun;
 }

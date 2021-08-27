@@ -12,7 +12,6 @@ import com.greenart.service.AccidentInfoService;
 import com.greenart.vo.AccidentAllInfoVO;
 import com.greenart.vo.AccidentBycInfoVO;
 import com.greenart.vo.AccidentChdInfoVO;
-import com.greenart.vo.AccidentJwkInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
 
 import java.net.URLEncoder;

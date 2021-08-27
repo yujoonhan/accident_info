@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import com.greenart.vo.AccidentBycInfoVO;
-import com.greenart.vo.AccidentChdInfoVO;
 import com.greenart.vo.AccidentOldInfoVO;
 
 import java.net.URLEncoder;

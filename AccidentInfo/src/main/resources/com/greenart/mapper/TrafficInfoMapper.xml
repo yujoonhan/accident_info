@@ -4,8 +4,98 @@
 <mapper namespace="com.greenart.mapper.TrafficInfoMapper">
     <insert id="insertTrafficInfo">
         INSERT INTO traffic_info
-            (sumDate, trafficVolumn)
+            (y2016, y2017, y2018, y2019, y2020, gubun, car_gubun)
         VALUES
-            (#{sumDate}, #{trafficVolumn});
+            (#{y2016}, #{y2017}, #{y2018}, #{y2019}, #{y2020}, #{gubun}, #{car_gubun});
     </insert>
+
+    <select id="selectTrafficCnt" resultType="com.greenart.vo.TrafficInfoVO">
+        select
+        sum(y2016) as y2016,
+        sum(y2017) as y2017,
+        sum(y2018) as y2018,
+        sum(y2019) as y2019,
+        sum(y2020) as y2020
+        from traffic_info;
+    </select>
+    <select id="selectTrafficSCnt" resultType="com.greenart.vo.TrafficInfoVO">
+        select
+        sum(y2016) as y2016,
+        sum(y2017) as y2017,
+        sum(y2018) as y2018,
+        sum(y2019) as y2019,
+        sum(y2020) as y2020
+        from traffic_info
+        where car_gubun = '소형차';
+    </select>
+    <select id="selectTrafficMCnt" resultType="com.greenart.vo.TrafficInfoVO">
+        select
+        sum(y2016) as y2016,
+        sum(y2017) as y2017,
+        sum(y2018) as y2018,
+        sum(y2019) as y2019,
+        sum(y2020) as y2020
+        from traffic_info
+        where car_gubun = '중형차';
+    </select>
+    <select id="selectTrafficLCnt" resultType="com.greenart.vo.TrafficInfoVO">
+        select
+        sum(y2016) as y2016,
+        sum(y2017) as y2017,
+        sum(y2018) as y2018,
+        sum(y2019) as y2019,
+        sum(y2020) as y2020
+        from traffic_info
+        where car_gubun = '대형차';
+    </select>
+
+    <select id="selectTrafficCar" resultType="com.greenart.vo.TrafficCarInfoVO">
+        select sum(all_s_c) as all_s_c, sum(all_m_c) as all_m_c, sum(all_l_c) as all_l_c
+        from (
+        select sum(all_s) as all_s_c, sum(all_m) as all_m_c, sum(all_l) as all_l_c
+        from (
+        select sum(y2016) as all_s from traffic_info where car_gubun = '소형차'
+        ) as a inner join (
+        select sum(y2016) as all_m from traffic_info where car_gubun = '중형차'
+        ) as b inner join (
+        select sum(y2016) as all_l from traffic_info where car_gubun = '대형차'
+        ) as c
+        union
+        select sum(all_s) as all_s, sum(all_m) as all_m, sum(all_l) as all_l
+        from (
+        select sum(y2017) as all_s from traffic_info where car_gubun = '소형차'
+        ) as a inner join (
+        select sum(y2017) as all_m from traffic_info where car_gubun = '중형차'
+        ) as b inner join (
+        select sum(y2017) as all_l from traffic_info where car_gubun = '대형차'
+        ) as c
+        union
+        select sum(all_s) as all_s, sum(all_m) as all_m, sum(all_l) as all_l
+        from (
+        select sum(y2018) as all_s from traffic_info where car_gubun = '소형차'
+        ) as a inner join (
+        select sum(y2018) as all_m from traffic_info where car_gubun = '중형차'
+        ) as b inner join (
+        select sum(y2018) as all_l from traffic_info where car_gubun = '대형차'
+        ) as c
+        union
+        select sum(all_s) as all_s, sum(all_m) as all_m, sum(all_l) as all_l
+        from (
+        select sum(y2019) as all_s from traffic_info where car_gubun = '소형차'
+        ) as a inner join (
+        select sum(y2019) as all_m from traffic_info where car_gubun = '중형차'
+        ) as b inner join (
+        select sum(y2019) as all_l from traffic_info where car_gubun = '대형차'
+        ) as c
+        union
+        select sum(all_s) as all_s, sum(all_m) as all_m, sum(all_l) as all_l
+        from (
+        select sum(y2020) as all_s from traffic_info where car_gubun = '소형차'
+        ) as a inner join (
+        select sum(y2020) as all_m from traffic_info where car_gubun = '중형차'
+        ) as b inner join (
+        select sum(y2020) as all_l from traffic_info where car_gubun = '대형차'
+        ) as c
+        ) as d;
+    </select>
 </mapper>
