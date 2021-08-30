@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greenart.mapper.AccidentMapMapper">
+    <insert id="insertAccOldMap">
+        INSERT INTO accident_map
+            (sido_sgg_nm, spot_nm, lo_crd, la_crd, yearDt)
+        VALUES
+            (#{sido_sgg_nm}, #{spot_nm}, #{lo_crd}, #{la_crd}, #{yearDt});
+    </insert>
+    <select id="selectOldMap" resultType="com.greenart.vo.AccidentMapVO">
+        select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_map
+        where yearDt = '2020'
+        and sido_sgg_nm like #{region};
+    </select>
+</mapper>

@@ -34,11 +34,11 @@ public class AccidentAPIController {
 
     // 노인
     @GetMapping("/api/accident_old")
-    public Map<String, Object> getAccidentOldInfo(@RequestParam String startDt) throws Exception{
+    public Map<String, Object> getAccidentOldInfo() throws Exception{
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552061/frequentzoneOldman/getRestFrequentzoneOldman"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=XcMVI%2BPYP9PXFzduwTkGpO3CLQp%2BznCPhBdTLXkiDkvBUpEmttNmd%2FN0xAzf1q%2FFNw0nDMBjCfLYb%2Bj9MJxTFg%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("searchYearCd","UTF-8") + "=" + URLEncoder.encode(startDt, "UTF-8")); /*조회하고자 하는 연도값 입력(값 없을 시 공백리턴)*/
+        urlBuilder.append("&" + URLEncoder.encode("searchYearCd","UTF-8") + "=" + URLEncoder.encode("2020", "UTF-8")); /*조회하고자 하는 연도값 입력(값 없을 시 공백리턴)*/
         urlBuilder.append("&" + URLEncoder.encode("siDo","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*코드종류 코드값전체 공백시 전체 선택서울특별시 11부산광역시 26대구광역시 27인천광역시 28광주광역시 29대전광역시 30울산광역시 31세종특별자치시 36경기도 41강원도 42충청북도 43충청남도 44전라북도 45전라남도 46경상북도 47경상남도 48제주특별자치도 50*/
         urlBuilder.append("&" + URLEncoder.encode("guGun","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*시도 코드종류 코드값서울특별시 강남구 680 강동구 740 강북구 305 강서구 500 관악구 620 광진구 215 구로구 530 금천구 545 노원구 350 도봉구 320 동대문구 230 동작구 590 마포구 440 서대문구 410 서초구 650 성동구 200 성북구 290 송파구 710 양천구 470 영등포구 560 용산구 170 은평구 380 종로구 110 중구 140 중랑구 260부산광역시 강서구 4*/
         urlBuilder.append("&" + URLEncoder.encode("type","UTF-8") + "=" + URLEncoder.encode("xml", "UTF-8")); /*결과형식(xml/json)*/
@@ -62,29 +62,29 @@ public class AccidentAPIController {
         for(int i=0; i<nList.getLength(); i++) {
             Node node = nList.item(i);
             Element elem = (Element) node;
-            // System.out.println(getTagValue("sido_sgg_nm", elem));
-            // System.out.println(getTagValue("spot_nm", elem));
-            // System.out.println(getTagValue("occrrnc_cnt", elem));
-            // System.out.println(getTagValue("caslt_cnt", elem));
-            // System.out.println(getTagValue("dth_dnv_cnt", elem));
-            // System.out.println(getTagValue("se_dnv_cnt", elem));
-            // System.out.println(getTagValue("sl_dnv_cnt", elem));
-            // System.out.println("====================================");
+            System.out.println(getTagValue("sido_sgg_nm", elem));
+            System.out.println(getTagValue("spot_nm", elem));
+            System.out.println(getTagValue("occrrnc_cnt", elem));
+            System.out.println(getTagValue("caslt_cnt", elem));
+            System.out.println(getTagValue("dth_dnv_cnt", elem));
+            System.out.println(getTagValue("se_dnv_cnt", elem));
+            System.out.println(getTagValue("sl_dnv_cnt", elem));
+            System.out.println("====================================");
 
-            AccidentOldInfoVO vo = new AccidentOldInfoVO();
-            vo.setSido_sgg_nm(getTagValue("sido_sgg_nm", elem));
-            vo.setSpot_nm(getTagValue("spot_nm", elem));
-            vo.setOccrrnc_cnt(Integer.parseInt(getTagValue("occrrnc_cnt", elem)));
-            vo.setCaslt_cnt(Integer.parseInt(getTagValue("caslt_cnt", elem)));
-            vo.setDth_dnv_cnt(Integer.parseInt(getTagValue("dth_dnv_cnt", elem)));
-            vo.setSe_dnv_cnt(Integer.parseInt(getTagValue("se_dnv_cnt", elem)));
-            vo.setSl_dnv_cnt(Integer.parseInt(getTagValue("sl_dnv_cnt", elem)));
+            // AccidentOldInfoVO vo = new AccidentOldInfoVO();
+            // vo.setSido_sgg_nm(getTagValue("sido_sgg_nm", elem));
+            // vo.setSpot_nm(getTagValue("spot_nm", elem));
+            // vo.setOccrrnc_cnt(Integer.parseInt(getTagValue("occrrnc_cnt", elem)));
+            // vo.setCaslt_cnt(Integer.parseInt(getTagValue("caslt_cnt", elem)));
+            // vo.setDth_dnv_cnt(Integer.parseInt(getTagValue("dth_dnv_cnt", elem)));
+            // vo.setSe_dnv_cnt(Integer.parseInt(getTagValue("se_dnv_cnt", elem)));
+            // vo.setSl_dnv_cnt(Integer.parseInt(getTagValue("sl_dnv_cnt", elem)));
 
-            Date dt = new Date();
-            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy");
-            dt = dtFormat.parse(startDt);
-            vo.setYearDt(dt);
-            System.out.println(vo);
+            // Date dt = new Date();
+            // SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy");
+            // dt = dtFormat.parse(startDt);
+            // vo.setYearDt(dt);
+            // System.out.println(vo);
             // service.insertAccidentOldInfo(vo);
         }
 

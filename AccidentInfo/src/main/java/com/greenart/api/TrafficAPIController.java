@@ -75,21 +75,6 @@ public class TrafficAPIController {
 
                 TrafficInfoVO vo = new TrafficInfoVO();
 
-                if(data.get("2016년") == null){
-                    continue;
-                }
-                if(data.get("2017년") == null){
-                    continue;
-                }
-                if(data.get("2018년") == null){
-                    continue;
-                }
-                if(data.get("2019년") == null){
-                    continue;
-                }
-                if(data.get("2020년") == null){
-                    continue;
-                }
                 vo.setY2016(Integer.parseInt(data.get("2016년").toString()));
                 vo.setY2017(Integer.parseInt(data.get("2017년").toString()));
                 vo.setY2018(Integer.parseInt(data.get("2018년").toString()));
@@ -136,5 +121,5 @@ public class TrafficAPIController {
         resultMap.put("data", vo);
         return resultMap;
     }
-
+    
 }
