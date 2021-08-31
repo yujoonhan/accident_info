@@ -10,7 +10,7 @@
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/js/map.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9690c185cffddbedc14fd293bb5bc1b6"></script>
-    
+    <link rel="stylesheet" href="/assets/css/map.css">
 </head>
 <body>
     <div class="container">

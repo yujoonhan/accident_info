@@ -1,0 +1,5 @@
+.container select {
+    margin-left: 400px;
+    padding: 10px 15px; font-family: "Noto Sans KR" sans-serif; font-size: 16px;
+    font-weight: 700; border: 2px solid #abf; outline: none;
+}

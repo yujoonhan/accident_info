@@ -1,12 +1,11 @@
 .sido_box{
-    width: 150px; height: 150px;
-    box-sizing: border-box; margin: 20px;
-    background-color: #fab;
-    text-align: center;
-    display: inline-block;
+    width: 150px; height: 150px; box-sizing: border-box; margin: 20px;
+    background-color: #fff; padding-top: 30px; font-size: 18px;
+    text-align: center; display: inline-block; border: 2px solid #abf;
+    outline: none; border-radius: 10px; vertical-align: middle;
 }
 .dashboard_area select {
     margin-left: 400px;
     padding: 10px 15px; font-family: "Noto Sans KR" sans-serif; font-size: 16px;
-    font-weight: 700; border: 2px solid #afb; outline: none;
+    font-weight: 700; border: 2px solid #abf; outline: none;
 }

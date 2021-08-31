@@ -11,6 +11,38 @@
     <select id="selectOldMap" resultType="com.greenart.vo.AccidentMapVO">
         select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_map
         where yearDt = '2020'
+        and sido_sgg_nm like #{region}
+        union
+        select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_chd_map
+        where yearDt = '2020'
+        and sido_sgg_nm like #{region}
+        union
+        select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_byc_map
+        where yearDt = '2020'
         and sido_sgg_nm like #{region};
     </select>
+
+    <insert id="insertAccChdMap">
+        INSERT INTO accident_chd_map
+            (sido_sgg_nm, spot_nm, lo_crd, la_crd, yearDt)
+        VALUES
+            (#{sido_sgg_nm}, #{spot_nm}, #{lo_crd}, #{la_crd}, #{yearDt});
+    </insert>
+    <!-- <select id="selectChdMap" resultType="com.greenart.vo.AccidentMapVO">
+        select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_chd_map
+        where yearDt = '2020'
+        and sido_sgg_nm like #{region};
+    </select> -->
+
+    <insert id="insertAccBycMap">
+        INSERT INTO accident_byc_map
+            (sido_sgg_nm, spot_nm, lo_crd, la_crd, yearDt)
+        VALUES
+            (#{sido_sgg_nm}, #{spot_nm}, #{lo_crd}, #{la_crd}, #{yearDt});
+    </insert>
+    <!-- <select id="selectBycMap" resultType="com.greenart.vo.AccidentMapVO">
+        select left(sido_sgg_nm, 4) as sido_nm, la_crd, lo_crd from accident_byc_map
+        where yearDt = '2020'
+        and sido_sgg_nm like #{region};
+    </select> -->
 </mapper>

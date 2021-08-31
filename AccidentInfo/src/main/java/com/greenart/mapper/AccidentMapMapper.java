@@ -10,4 +10,10 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AccidentMapMapper {
     public void insertAccOldMap(AccidentMapVO vo);
     public List<AccidentMapVO> selectOldMap(String region);
+
+    public void insertAccChdMap(AccidentMapVO vo);
+    public List<AccidentMapVO> selectChdMap(String region);
+
+    public void insertAccBycMap(AccidentMapVO vo);
+    public List<AccidentMapVO> selectBycMap(String region);
 }

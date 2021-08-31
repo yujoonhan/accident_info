@@ -1,7 +1,11 @@
 .container {width: 960px; margin: 40px auto; font-size: 0;}
 .container > div {display: inline-block; vertical-align: top; font-size: 16px;}
-.top_menu {width: 960px; height: 50px; background-color: #fff; margin-top: 40px;}
-.top_menu a {display: inline; font-size: 20px; font-family: "Noto Sans KR", sans-serif;
+.top_menu {
+    width: 960px; height: 50px; background-color: #fff; text-align: center;
+    padding-top: 15px;
+}
+.top_menu a { 
+    display: inline; font-size: 20px; font-family: "Noto Sans KR", sans-serif;
     text-decoration: none; background-color: rgb(88, 160, 255); font-weight: 500;
     padding: 15px 72px;
 }
